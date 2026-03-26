@@ -40,10 +40,20 @@ def eval_expression(expr):
 
     for i, char in enumerate(parts):
         if is_operator(char):
-            # check if previous two chars are ints
-            if ()
+            # check if previous two chars are digits
+            try:
+                a = parts[i - 2]
+                b = parts[i - 1]
 
-            a = parts[]
+                parts.insert(i + 1, calculate(float(a), float(b), char))
+
+                parts.pop(i - 2)
+                parts.pop(i - 1)
+                parts.pop(i)
+            except:
+                continue
+
+        
 
 def lambda_handler(event, context=None):
 

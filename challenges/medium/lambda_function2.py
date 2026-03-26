@@ -21,12 +21,12 @@ Expected output: {"statusCode": 200, "body": "hAlpharlEchom"}
 import json
 
 NATO = {
-    "A": "Alpha",
-    "E": "Echo",
-    "I": "India",
-    "O": "Oscar",
-    "U": "Uniform",
-    "Y": "Yankee",
+    "a": "Alpha",
+    "e": "Echo",
+    "i": "India",
+    "o": "Oscar",
+    "u": "Uniform",
+    "y": "Yankee",
 }
 
 def lambda_handler(event, context=None):
@@ -41,7 +41,7 @@ def lambda_handler(event, context=None):
         }
     
     for char in word:
-        char = char.upper()
+        char = char.lower()
         if char in NATO:
             res += NATO[char]
         else:
