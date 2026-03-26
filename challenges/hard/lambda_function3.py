@@ -22,6 +22,9 @@ OPERATORS = {"+", "-", "*", "/"}
 def is_operator(char):
     return char in OPERATORS
 
+def has_operator(parts):
+    return some([is_operator(x) for x in parts])
+
 def calculate(a, b, op):
     if op == "+":
         return a + b
@@ -38,20 +41,25 @@ def calculate(a, b, op):
 def eval_expression(expr):
     parts = expr.split(" ")
 
-    for i, char in enumerate(parts):
-        if is_operator(char):
-            # check if previous two chars are digits
-            try:
-                a = parts[i - 2]
-                b = parts[i - 1]
+    while len(parts > 1):  # expect one value left
+        for i, char in enumerate(parts):
+            if is_operator(char):
+                # check if previous two chars are digits
+                try:
+                    a = parts[i - 2]
+                    b = parts[i - 1]
 
-                parts.insert(i + 1, calculate(float(a), float(b), char))
+                    parts.insert(i + 1, calculate(float(a), float(b), char))
 
-                parts.pop(i - 2)
-                parts.pop(i - 1)
-                parts.pop(i)
-            except:
-                continue
+                    parts.pop(i - 2)
+                    parts.pop(i - 1)
+                    parts.pop(i)
+
+                    break # break out of for, start next iter of while loop
+                except:
+                    continue # is probably an int
+
+    return parts[0]
 
         
 
