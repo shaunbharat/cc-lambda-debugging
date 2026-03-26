@@ -41,7 +41,7 @@ def calculate(a, b, op):
 def eval_expression(expr):
     parts = expr.split(" ")
 
-    while len(parts) > 1:  # expect one value left
+    while has_operator(parts):  # expect one value left
         for i, char in enumerate(parts):
             if is_operator(char):
                 # check if previous two chars are digits
