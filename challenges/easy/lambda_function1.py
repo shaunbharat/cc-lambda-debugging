@@ -16,7 +16,7 @@ def lambda_handler(event, context=None):
             'body': json.dumps('Error: temperature field is required')
         }
     
-    fahrenheit = celsius * 9/5 + 38
+    fahrenheit = celsius * 9/5 + 32
     if type(fahrenheit) == float:
         fahrenheit = round(fahrenheit, 2) 
     
