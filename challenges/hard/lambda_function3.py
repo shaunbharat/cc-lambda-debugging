@@ -51,9 +51,9 @@ def eval_expression(expr):
 
                     parts.insert(i + 1, calculate(float(a), float(b), char))
 
-                    parts.pop(i - 2)
-                    parts.pop(i - 1)
                     parts.pop(i)
+                    parts.pop(i - 1)
+                    parts.pop(i - 2)
 
                     break # break out of for, start next iter of while loop
                 except:
