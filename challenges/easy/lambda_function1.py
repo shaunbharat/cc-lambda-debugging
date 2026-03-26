@@ -8,7 +8,7 @@ Expected output: {"statusCode": 200, "body": 77}
 import json
 
 def lambda_handler(event, context=None):
-    celsius = event.get('temp')
+    celsius = event.get('temperature')
     
     if celsius == None:
         return {
