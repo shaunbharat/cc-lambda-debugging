@@ -23,7 +23,7 @@ def is_operator(char):
     return char in OPERATORS
 
 def has_operator(parts):
-    return some([is_operator(x) for x in parts])
+    return any([is_operator(x) for x in parts])
 
 def calculate(a, b, op):
     if op == "+":
