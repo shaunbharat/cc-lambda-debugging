@@ -17,10 +17,37 @@ Expected output: {"statusCode": 200, "value": 50.5}
 """
 import json
 
+OPERATORS = {"+", "-", "*", "/"}
+
+def is_operator(char):
+    return char in OPERATORS
+
+def calculate(a, b, op):
+    if op == "+":
+        return a + b
+    
+    if op == "-":
+        return a - b
+    
+    if op == "*":
+        return a * b
+
+    if op == "/":
+        return a / b
+
+def eval_expression(expr):
+    parts = expr.split(" ")
+
+    for i, char in enumerate(parts):
+        if is_operator(char):
+            # check if previous two chars are ints
+            if ()
+
+            a = parts[]
+
 def lambda_handler(event, context=None):
 
-    expr = event['expression']
-    res = 0
+    expr = event.get('expression')
 
     if expr == None:
         return {
@@ -28,17 +55,10 @@ def lambda_handler(event, context=None):
             'body': json.dumps('Error: expression field does not exist')
         }
     
-    expr = expr.split(" ")
-    res = []
-
-    for char in expr:
-
-        if char in ["+", "-", "/", "*"]:
-            pass
-        else:
-            res.append(char)
+    res = eval_expression(expr)
 
     return {
         'statusCode': 200,
         'body': res
     }
+

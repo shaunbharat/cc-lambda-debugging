@@ -41,6 +41,7 @@ def lambda_handler(event, context=None):
         }
     
     for char in word:
+        char = char.upper()
         if char in NATO:
             res += NATO[char]
         else:
